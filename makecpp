@@ -1,0 +1,28 @@
+#!/bin/bash
+
+if [[ $# -eq 0 ]]; then
+    echo "Usage: makecpp (file name) ..."
+
+else
+    for file in "$@"; do
+        # Check if file exists
+        if test -f "$file.cpp"; then
+            echo "$file exists."
+        # Else make the file and cat everything in
+        else 
+            cat > $file.cpp << STOP
+#include <iostream>
+using namespace std;
+
+int main(){
+
+    cout << "Hello World!\n";
+    
+    return 0;
+}
+STOP
+        
+        fi # end of if 
+    done   # end of for loop
+fi         # end of if
+

@@ -1,18 +1,22 @@
-#!/bin/bash
+#!/bin/zsh
 
 declare -a fonts=(
-	Hack
-	Mononoki
-	NerdFontsSymbolsOnly
+    FiraCode
+    #FiraMono
+    #Hack
+    #JetBrainsMono
+    #Meslo
+    #RobotoMono
 )
 
-version='2.2.2'
+version='2.1.0'
 fonts_dir="${HOME}/.local/share/fonts"
 
 if [[ ! -d "$fonts_dir" ]]; then
     mkdir -p "$fonts_dir"
 fi
 
+echo "[-] Download fonts [-]"
 for font in "${fonts[@]}"; do
     zip_file="${font}.zip"
     download_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v${version}/${zip_file}"
